@@ -1,4 +1,5 @@
-import events
+from panoply import events
+
 
 # abstract DataSource object
 class DataSource(events.Emitter):
@@ -7,9 +8,9 @@ class DataSource(events.Emitter):
     options = None
 
     # data source constructor
-    def __init__(self, source, options = {}):
+    def __init__(self, source, options={}):
         super(DataSource, self).__init__()
-        
+
         self.source = source
         self.options = options
 
@@ -18,7 +19,7 @@ class DataSource(events.Emitter):
         if "logger" in self.options:
             self.options["logger"](msgs)
         else:
-            print msgs
+            print(msgs)
 
     def progress(self, loaded, total, msg):
         self.fire("progress", {
@@ -26,5 +27,3 @@ class DataSource(events.Emitter):
             "total": total,
             "msg": msg
         })
-
-

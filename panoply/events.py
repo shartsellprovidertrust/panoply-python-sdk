@@ -8,11 +8,11 @@ class Emitter(object):
         self._events.setdefault(name, []).append(fn)
         return self
 
-    def fire(self, name, data):
+    def fire(self, name, *data):
         for fn in self._events.get("*", []):
             fn(name, data)
 
         for fn in self._events.get(name, []):
-            fn(data)
+            fn(*data)
 
         return self
