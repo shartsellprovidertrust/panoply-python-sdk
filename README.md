@@ -1,10 +1,15 @@
 # panoply-python-sdk
+
+Fork of [https://github.com/panoplyio/panoply-python-sdk](https://github.com/panoplyio/panoply-python-sdk) in order to make the it compatible with Python 3 with the intent of taking advantage of async/await.
+
+**Note**: Due to the above, this fork will not backwards compatible with Python 2.7
+
 SQS-based Python SDK for streaming data in realtime to the Panoply platform
 
 #### Install
 
 ```
-$ python setup.py install
+$ pip install -e git+git://github.com/shartsellprovidertrust/panoply-python-sdk.git#egg=panoply-python-sdk
 ```
 
 #### Usage
@@ -141,5 +146,3 @@ Every data source is code-reviewed by the Panoply.io team before being integrate
 * Test it throughly with unit-tests.
 * Add an annotated git tag with the version number (eg: v1.0.0) to the master branch locking the data source to a specific version.
 * Notify the Panoply.io team of your data source, and we will integrate it promptly.
-
-
