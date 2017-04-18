@@ -85,11 +85,10 @@ class SDK (events.Emitter):
             "Content-Type": "application/x-www-form-urlencoded"
         }
 
-        print("FLUSHING DATA")
-
         body_bytes = body.encode('utf-8')
         req = urllib.request.Request(self.qurl, body_bytes, headers)
         self.fire("send", req)
+
         try:
             res = urllib.request.urlopen(req)
         except Exception as err:
