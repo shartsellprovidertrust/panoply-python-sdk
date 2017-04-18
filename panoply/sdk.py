@@ -21,11 +21,14 @@ class SDK (events.Emitter):
     # internal buffer queue
     _buffer = None
 
-    def __init__(self, apikey, apisecret):
+    def __init__(self, apikey, apisecret, jsonEncoder=json.JSONEncoder):
         super(SDK, self).__init__()
 
         self.apikey = apikey
         self.apisecret = apisecret
+
+        # patch the json encoder
+        json.JSONEncoder.default = jsonEncoder.default
 
         # decompose the api key and secret
         # api-key: ACCOUNT/RAND1
